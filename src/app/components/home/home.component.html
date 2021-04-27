@@ -1,0 +1,42 @@
+<h2>Home</h2>
+
+<!--
+    {{}} - interpolation, accept an expression,  
+             evaluate and convert the result to string and display in html
+    [] - property binding
+    () - event binding
+-->
+
+<p> 4 * 6 => {{ 4 * 6 }} </p>
+
+<p> pageLikes => {{pageLikes}} </p>
+
+<p> Odd/Even => {{pageLikes % 2 == 0? 'Even': 'Odd'}} </p>
+
+<h4>Property binding </h4>
+
+<!-- value is a property, now fixed value with 100 -->
+<input value="100 + 200" />
+
+<br />
+
+<!-- value with property binding, dynamic expression
+     property binding shall not convert result to string
+     pass the output as is..
+-->
+
+<input [value]="100 + 200" >
+<br />
+
+<input [value]="pageLikes" >
+
+<br />
+
+<input [value]="100 + pageLikes" >
+
+<br />
+
+<p> Event binding () </p>
+
+<button (click)="up()">+1</button>
+<button (click)="pageLikes = pageLikes - 1"> -1 </button>

@@ -1,0 +1,39 @@
+<h2>Contact</h2>
+<!-- elvis operator .? null check 
+if branchOffice is null/undefined, it won't result city
+-->
+
+<!--
+    # - template reference variable, it allows to define a variable reference
+        to DOM element and for the directive and component
+
+    # DOM/directive reference is held only within component scope
+
+    We can access Template Reference variable in Component / TS
+
+    @ViewChild
+    @ViewChildren
+-->
+
+
+<!-- yourName is a reference to input dom element
+    myResult is a reference to para dom element
+-->
+
+Name <input type="text" #yourName >
+
+<p #myResult >Your name</p>
+
+<button (click)="yourName.value = 'Angular'  ">Set Name</button>
+<button (click)="myResult.textContent = yourName.value">Get Name</button>
+
+<div #container></div>
+
+<!-- contact is a parent componet, app-address child component 
+     we can pass the data from parent to child, using property binding []
+     
+-->
+
+<app-address [address]="headOffice"> </app-address>
+
+<app-address [address]="branchOffice"> </app-address>

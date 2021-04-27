@@ -1,0 +1,24 @@
+<div>
+    <!-- view, where we can bind component member variables-->
+    <h2>Welcome to {{appTitle}}</h2>
+</div>
+
+<!-- composing components together 
+     app is a parent componenent
+     header, footer, contact, home, about are children
+
+-->
+
+<app-header>
+</app-header>
+
+<app-home></app-home>
+<app-contact></app-contact>
+<app-about></app-about>
+
+<!-- passing input footer component -->
+<app-footer [year]="2020 + 1" 
+            company="ShopCart"
+            [branches]="['pune', 'blr', 'chennai']"
+            >
+</app-footer>

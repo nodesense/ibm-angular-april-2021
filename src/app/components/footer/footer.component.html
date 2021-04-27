@@ -1,0 +1,15 @@
+<!-- {} is an object 
+ngClass is an attribute directive, 
+it will manipulate class attribute of div tag
+
+highlight is a variable from footer component
+-->
+<div [ngClass]="{highlightBg: highlight, textColor: highlight}"
+     (mouseenter)="highlight = true"  
+     (mouseleave)="highlight = false"     
+>
+    <hr />
+    <p>Copyrights @{{year}}, {{company}}</p>
+
+    Branches: <span *ngFor="let branch of branches">{{branch}} </span>
+</div>
