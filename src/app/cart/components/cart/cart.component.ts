@@ -21,7 +21,10 @@ export class CartComponent implements OnInit {
 
   addItem() {
     const id = Math.ceil(Math.random() * 1000000)
-    const item = new CartItem(id, `Product ${id}`, 100, 1)
+    const price = Math.ceil(Math.random() * 1000)
+    const qty = Math.ceil(Math.random() * 10)
+
+    const item = new CartItem(id, `Product ${id}`, price, qty)
     this.cartService.addItem(item)
   }
 

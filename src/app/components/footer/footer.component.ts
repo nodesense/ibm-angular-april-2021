@@ -17,6 +17,8 @@ export class FooterComponent implements OnInit {
   @Input()
   branches: string[];
 
+  today: Date = new Date();
+
 
   highlight = false;
   
