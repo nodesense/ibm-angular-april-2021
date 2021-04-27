@@ -1,5 +1,20 @@
 # ProductApp
 
+to clone the repo,
+
+```
+git clone https://github.com/nodesense/ibm-angular-april-2021
+
+cd ibm-angular-april-2021
+
+npm install
+
+
+ng serve
+
+
+```
+
 
 In VSCode, View Menu, Terminal Menu Item...
 
