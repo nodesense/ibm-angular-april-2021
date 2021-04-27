@@ -9,7 +9,7 @@
         <th>Ops</th>
     </tr>
 
-    <tr *ngFor="let item of (items | sort:'price':'desc') ">
+    <tr *ngFor="let item of (items | sort:'qty':'asc') ">
         <td>{{item.name  | uppercase}}</td>
         <td>{{item.price | currency:'INR'}}</td>
         <td>{{item.qty}}</td>

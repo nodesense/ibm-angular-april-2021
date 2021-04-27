@@ -7,6 +7,15 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 // {{ items | sort:'price':'asc'  }}
 
+
+// Two types
+
+// pure pipe, if any of the input parameter reference/value got changed, then it calls transform
+//   pure pipe ==> performance gain
+// impure pipe : whenever dirty check going on, the pipe shall be called
+                // poor performance
+
+
 @Pipe({
   name: 'sort',
   pure: false,
