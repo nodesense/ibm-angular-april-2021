@@ -9,6 +9,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SharedModule } from './shared/shared.module';
 
+import {FormsModule} from '@angular/forms';
+
 // logically collection of componnents, pipes and directives, associated services
 // a module may have dependencies to another module
 // angular loads modules first
@@ -17,7 +19,8 @@ import { SharedModule } from './shared/shared.module';
     imports: [
         // all other module dependencies used here
         BrowserModule, // all browser specific implementation
-        SharedModule
+        SharedModule,
+        FormsModule
     ],
     declarations: [
         // consist of all componnents, pipes, directives belong to this module

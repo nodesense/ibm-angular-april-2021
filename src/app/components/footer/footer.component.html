@@ -12,4 +12,7 @@ highlight is a variable from footer component
     <p>Copyrights @{{year}}, {{company}}</p>
 
     Branches: <span *ngFor="let branch of branches">{{branch}} </span>
+
+    <!-- render content children in child component -->
+    <ng-content></ng-content>
 </div>

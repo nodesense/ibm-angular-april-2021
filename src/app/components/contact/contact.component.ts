@@ -11,7 +11,7 @@ export class ContactComponent implements OnInit {
 
   headOffice:Address = {city: 'BLR', state: 'KA', pincode: 560001}
 
-  branchOffice: Address = {city: 'Pune', state: 'MH', pincode: 460001}; // undefined
+  branchOffice: Address; // undefined
 
   //ElementRef is a wrapper object
   @ViewChild("yourName", {static: true})
@@ -19,6 +19,8 @@ export class ContactComponent implements OnInit {
 
   @ViewChild("myResult", {static: true})
   paraElement: ElementRef;
+
+  address: Address = {city:'', state:'', pincode: 0}
 
 
   constructor() { }
@@ -33,6 +35,24 @@ export class ContactComponent implements OnInit {
     setTimeout( () => {
       this.branchOffice = {city: 'Pune', state: 'MH', pincode: 460001}
     }, 5000)
+  }
+
+  contact(address: Address) {
+    console.log("Contact event address ", address)
+  }
+
+  btnClick(e: Event) {
+    console.log("Event is ", e)
+  }
+
+
+  save() {
+    console.log("contact details are ", this.address)
+  }
+
+  reset() {
+    console.log("Clear form data");
+    this.address = {city: '', state:'', pincode: 0}
   }
 
 }

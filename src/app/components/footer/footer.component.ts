@@ -6,8 +6,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-  // Import is for property binding
-  // or accepting parameter from parent component
+  // Input is for property binding
+  // or accepting data/value/input from parent component
   @Input()
   year: number;
 

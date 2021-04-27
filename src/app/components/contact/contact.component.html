@@ -15,6 +15,20 @@ if branchOffice is null/undefined, it won't result city
     @ViewChildren
 -->
 
+<!-- 
+     [()] - two way binding, property + event binding
+-->
+
+<form (ngSubmit)="save()" (ngReset)="reset()">
+    City <input  type="text" name="city" [(ngModel)]="address.city" >
+    State <input  type="text" name="state" [ngModel]="address.state" 
+                 (ngModelChange)="address.state = $event" >
+
+    Pincode <input type="number" name="pincode" [(ngModel)]="address.pincode" >
+    <button type="submit">Submit</button>
+    <button type="reset">Reset</button>
+</form>
+  
 
 <!-- yourName is a reference to input dom element
     myResult is a reference to para dom element
@@ -29,11 +43,34 @@ Name <input type="text" #yourName >
 
 <div #container></div>
 
+
+
+
+
 <!-- contact is a parent componet, app-address child component 
      we can pass the data from parent to child, using property binding []
      
 -->
 
-<app-address [address]="headOffice"> </app-address>
+<!-- $event (angular keyword)  data that is passed via event
+    we subscribe for click event, event binding ()
+-->
+<button (click)="btnClick($event)">Btn click</button>
 
-<app-address [address]="branchOffice"> </app-address>
+<!-- contactEvent is output EventEmitter
+        $event is the value passed in emit(this.address) in address component
+        contact($event) is a parent function that should be called when event occurred
+    -->
+<app-address [address]="headOffice"
+             (contactEvent) = "contact($event)"  
+
+>
+    <h5>Head Office</h5>
+</app-address>
+
+<app-address [address]="branchOffice" 
+             (contactEvent) = "contact($event)"  
+
+>
+    <h5>Branch Office</h5>    
+</app-address>
