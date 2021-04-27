@@ -10,6 +10,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SharedModule } from './shared/shared.module';
 
 import {FormsModule} from '@angular/forms';
+import { CartModule } from './cart/cart.module';
 
 // logically collection of componnents, pipes and directives, associated services
 // a module may have dependencies to another module
@@ -20,7 +21,8 @@ import {FormsModule} from '@angular/forms';
         // all other module dependencies used here
         BrowserModule, // all browser specific implementation
         SharedModule,
-        FormsModule
+        FormsModule,
+        CartModule
     ],
     declarations: [
         // consist of all componnents, pipes, directives belong to this module

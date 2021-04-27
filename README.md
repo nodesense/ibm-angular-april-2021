@@ -28,7 +28,6 @@ ng g  c components/contact
 
 ng g  c components/not-found
 
-
 ng g  c components/header
 
 ng g  c components/footer
@@ -56,6 +55,18 @@ ng g  c components/footer
     
 ```
 
+```
+ ng g module cart
+
+ ng g c cart/components/cart
+ ng g c cart/components/checkout
+ ng g c cart/components/cart-list
+ ng g c cart/components/cart-summary
+
+ ng g service cart/services/cart
+ ng g class cart/models/cart-item
+
+```
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.7.
