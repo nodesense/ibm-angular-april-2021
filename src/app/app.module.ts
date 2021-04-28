@@ -13,6 +13,8 @@ import {FormsModule} from '@angular/forms';
 import { CartModule } from './cart/cart.module';
 import { AppRoutingModule } from './app.routing';
 
+import {HttpClientModule} from '@angular/common/http';
+
 // logically collection of componnents, pipes and directives, associated services
 // a module may have dependencies to another module
 // angular loads modules first
@@ -24,7 +26,8 @@ import { AppRoutingModule } from './app.routing';
         SharedModule,
         FormsModule,
         CartModule,
-        AppRoutingModule
+        AppRoutingModule,
+        HttpClientModule
     ],
     declarations: [
         // consist of all componnents, pipes, directives belong to this module

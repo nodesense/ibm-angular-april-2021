@@ -30,9 +30,11 @@ export class CartService {
   private _cartItems: CartItem[] = [];
 
   // whenever amount,totalItems, cartItems is changed, publish it
-  amount$: Subject<number> = new Subject<number>();
-  totalItems$: Subject<number> = new Subject<number>();
-  cartItems$: Subject<CartItem[]> = new Subject<CartItem[]> ();
+  // behavioursubject shall publish as soon some consumer subscribe it
+  // it won't wait for .next to be called, it maintain last known value
+  amount$: Subject<number> = new BehaviorSubject<number>(this._amount);
+  totalItems$: Subject<number> = new BehaviorSubject<number>(this._totalItems);
+  cartItems$: Subject<CartItem[]> = new BehaviorSubject<CartItem[]> (this._cartItems);
 
   get amount() {
     return this._amount;
