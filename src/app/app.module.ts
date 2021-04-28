@@ -11,6 +11,7 @@ import { SharedModule } from './shared/shared.module';
 
 import {FormsModule} from '@angular/forms';
 import { CartModule } from './cart/cart.module';
+import { AppRoutingModule } from './app.routing';
 
 // logically collection of componnents, pipes and directives, associated services
 // a module may have dependencies to another module
@@ -22,7 +23,8 @@ import { CartModule } from './cart/cart.module';
         BrowserModule, // all browser specific implementation
         SharedModule,
         FormsModule,
-        CartModule
+        CartModule,
+        AppRoutingModule
     ],
     declarations: [
         // consist of all componnents, pipes, directives belong to this module
