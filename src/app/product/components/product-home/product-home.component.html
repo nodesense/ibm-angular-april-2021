@@ -1,0 +1,20 @@
+<h2>Product Home</h2>
+
+<!-- RELATIVE PATH: see in the routerlink, we don't use / as prefix, it means, it is relative path
+     the path is derived from parent path /products
+-->
+<!-- /products -->
+<div>
+<a routerLink="/products" class="button" 
+routerLinkActive="success"
+[routerLinkActiveOptions]="{exact: true}"
+> List
+</a>
+
+<!-- /products/create -->
+
+<a routerLink="create"  class="button"  routerLinkActive="success" >Create</a>
+<a routerLink="search"  class="button"  routerLinkActive="success" >Search</a>
+</div>
+<!-- container for product specific pages list, edit, search page -->
+<router-outlet></router-outlet>

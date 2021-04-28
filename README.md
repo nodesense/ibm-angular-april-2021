@@ -68,6 +68,18 @@ ng g  c components/footer
 
 ```
 
+```
+ ng g module product
+ ng g c product/components/product-home
+ ng g c product/components/product-list
+ ng g c product/components/product-edit
+ ng g c product/components/product-search
+
+ ng g service product/services/product
+ ng g class   product/models/product
+ ng g class   product/models/brand
+```
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.7.
 

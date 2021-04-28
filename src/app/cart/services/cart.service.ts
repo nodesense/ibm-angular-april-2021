@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { CartItem } from '../models/cart-item';
 
+import {Observable, Subject, BehaviorSubject} from 'rxjs';
+
 /*
 1. Implement a business logic
 2. Implement API interaction with web services
@@ -27,6 +29,11 @@ export class CartService {
   private _totalItems: number = 0;
   private _cartItems: CartItem[] = [];
 
+  // whenever amount,totalItems, cartItems is changed, publish it
+  amount$: Subject<number> = new Subject<number>();
+  totalItems$: Subject<number> = new Subject<number>();
+  cartItems$: Subject<CartItem[]> = new Subject<CartItem[]> ();
+
   get amount() {
     return this._amount;
   }
@@ -37,6 +44,30 @@ export class CartService {
 
   get cartItems() {
     return this._cartItems
+  }
+
+  // this.amount = 100, this setter is invoked
+  set amount(value: number) {
+    if (value >= 0) {
+      this._amount = value;
+      // publish the changes to subscriber
+      this.amount$.next(this._amount)
+    }
+  }
+
+  set totalItems(value: number) {
+    if (value >= 0) {
+      this._totalItems = value;
+      // publish the changes to subscriber
+      this.totalItems$.next(this._totalItems)
+    }
+  }
+
+  // this.cartItems = []
+  set cartItems(value: CartItem[]) {
+      this._cartItems = value;
+      // publish the changes to subscriber
+      this.cartItems$.next(this._cartItems)
   }
 
   constructor() {
@@ -50,19 +81,25 @@ export class CartService {
        total += item.qty
      }
 
-     this._amount = amount;
-     this._totalItems = total;
+     this.amount = amount; // this will call set amount, also publish the data
+     this.totalItems = total; // this will call set totalItems, also publish the data
+
      console.log("amount ", amount)
      console.log("_totalItems ", total)
    }
 
    addItem(item: CartItem) {
-     this._cartItems.push(item)
+     // mutation, will cause problem for pure pipe
+     // this._cartItems.push(item)
+     // immutation, good
+     this.cartItems = [...this._cartItems, item]    // setter, publish the values
      this.calculate();
    }
 
    empty() {
-     this._cartItems.splice(0, this._cartItems.length);
+     // mutation
+     // this._cartItems.splice(0, this._cartItems.length);
+     this.cartItems = [] ; // assign new array, call setter, publish the changed values
      this.calculate();
    }
 }
