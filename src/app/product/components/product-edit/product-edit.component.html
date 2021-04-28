@@ -1,1 +1,35 @@
-<p>product-edit works!</p>
+<h2>Product {{product.id? "Edit": "New"}}</h2>
+
+<!--
+    #productName="ngModel" means, we get instance of ngModel directive of that tag
+
+    ngForm is a directive, applied on all form tag if we have FormsModule in our app
+    #productForm="ngForm", here productForm shall have reference to ngForm directive instance
+
+-->
+
+<p *ngIf="productForm.dirty">Form data changed</p>
+<p *ngIf="productForm.invalid">Incorrect data in product form</p>
+
+
+<form (ngSubmit)="saveProduct()"   #productForm="ngForm" >
+    Name <input name="name" type="text" [(ngModel)]="product.name" 
+                required
+                minlength="2"    
+
+                #productName="ngModel"
+    >
+
+    <p *ngIf="productName?.invalid">The name entered is wrong!!</p>
+
+    <p *ngIf="productName?.errors?.minlength">
+        need more chars .. {{productName?.errors?.minlength.requiredLength}}
+    </p>
+
+    <pre>{{productName.errors | json}}</pre>
+
+    Year <input name="year" type="number" [(ngModel)]="product.year" >
+    Price <input name="price" type="number" [(ngModel)]="product.price" >
+
+    <button type="submit" [disabled]="productForm.invalid"     >Save</button>
+</form>

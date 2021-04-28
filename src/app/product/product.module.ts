@@ -5,6 +5,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { ProductEditComponent } from './components/product-edit/product-edit.component';
 import { ProductSearchComponent } from './components/product-search/product-search.component';
 import { ProductRoutingModule } from './product.routing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -17,7 +18,9 @@ import { ProductRoutingModule } from './product.routing';
   ],
   imports: [
     CommonModule,
-    ProductRoutingModule
+    ProductRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ProductModule { }

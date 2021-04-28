@@ -22,7 +22,7 @@ const routes: Routes = [
             },
             {
                 path: 'edit/:id', // localhost:4200/products/edit/4343 
-                component: ProductListComponent
+                component: ProductEditComponent
             },
             {
                 path: 'search', // localhost:4200/products/search 
