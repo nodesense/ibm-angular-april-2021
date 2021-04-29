@@ -101,6 +101,27 @@ ng g class models/favorite
 
 ```
 
+```
+npm install http-server -g
+
+
+
+
+to build production,
+
+```
+npm run build
+
+http-server -c-1 -p 8880 dist/product-app
+```
+
+to build staging,
+
+ng build --configuration=staging
+
+http-server -c-1 -p 8880 dist/product-app
+```
+
 
 Favorites
 
