@@ -5,7 +5,7 @@ import {FormBuilder, FormGroup, FormControl,
 import { ProductService } from '../../services/product.service';
 
 import {map, filter, debounceTime} from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Observable, of, EMPTY } from 'rxjs';
 import { Product } from '../../models/product';
 
 // custom validator
@@ -65,12 +65,17 @@ export class ProductSearchComponent implements OnInit {
   ngOnInit(): void {
     this.searchBox.valueChanges
                   .pipe ( map ( (value: string) => value.trim().toLowerCase() ))
-                  .pipe ( filter ( (value: string) => !!value)) // !!value mean, should be truthy
+                  // .pipe ( filter ( (value: string) => !!value)) // !!value mean, should be truthy
                   .pipe (debounceTime(500))
                   .subscribe ( value => {
                      console.log("*****"+value+"*****")
                      this.searchText = value;
-                     this.products$ = this.productService.searchProducts(value);
+                     if (!!value) {
+                      this.products$ = this.productService.searchProducts(value);
+                     } else {
+                       this.products$ = EMPTY;
+                     }
+                     
                   });
   }
 
