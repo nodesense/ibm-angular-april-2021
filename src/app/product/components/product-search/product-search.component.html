@@ -1,1 +1,29 @@
-<p>product-search works!</p>
+<h2>Product Search</h2>
+
+<p> Has Error ? {{form.invalid}} </p>
+
+<pre>
+    {{searchBox.errors | json}}
+</pre>
+
+<!-- in reactive form, all binding, validation done in TS code, we have full control -->
+<!-- form is binded to form group in component -->
+<form [formGroup]="form" >
+    <p>Search</p>
+    <input type="text" formControlName="searchInput"  >
+</form>
+
+
+<p>Searching for {{searchText}}</p>
+
+              
+<table>
+  <tr>
+      <th>Product</th>
+  </tr>
+  <tr *ngFor="let p of  products$ | async">
+      <td>
+           <span>{{p.name}}</span>
+      </td>
+  </tr>
+</table>
