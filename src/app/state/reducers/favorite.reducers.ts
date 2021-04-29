@@ -16,6 +16,13 @@ const _favoriteReducer = createReducer(
     on(emptyFavorites, (state) => [])
 )
 
+// state is provided by store, action is provided by dispatch
+// returned new state is maintained by store 
 export function favoriteReducer(state, action) {
-    return _favoriteReducer(state, action)
+    console.log('favoriteReducer called ', state, action)
+    console.log("State before ", state)
+    // returned state value always kept by store as last known value
+    state =  _favoriteReducer(state, action) 
+    console.log("State after ", state)
+    return state;
 }
