@@ -78,6 +78,14 @@ ng g  c components/footer
  ng g service product/services/product
  ng g class   product/models/product
  ng g class   product/models/brand
+
+ // activate guard
+
+ ng g guard  product/guards/can-edit
+
+ // deactivate guard
+ 
+ ng g guard  product/guards/save-alert
 ```
 
 

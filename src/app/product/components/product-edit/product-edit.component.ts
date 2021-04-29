@@ -47,7 +47,9 @@ export class ProductEditComponent implements OnInit {
     this.productService.saveProduct(this.product)
                         .subscribe( product => {
                            console.log("updated product ", product);
-                           this.product = product; // good pratice
+                           this.product = product; // good pratice, this will not reset form status
+                           // now reset the form ,clear the status
+                           this.productForm.reset(this.product);
                            // this.router.navigateByUrl("/products"); // go to list page
                         })
   }
