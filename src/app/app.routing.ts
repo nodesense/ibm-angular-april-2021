@@ -5,7 +5,8 @@ import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { CartRoutingModule } from './cart/cart.routing';
-import { ProductModule } from './product/product.module';
+
+// import { ProductModule } from './product/product.module';
 
 // step 1: define the route configuration
 // map path to component
@@ -23,6 +24,14 @@ const routes: Routes = [
     {
         path: 'contact',
         component: ContactComponent
+    },
+    {
+        // lazy loading and code spliting
+        // product module code shall be split into differnt bundle product.product.module
+        // the product module code shall be downloaded when user clicks product links
+        path: 'products',
+        loadChildren: () => import ("./product/product.module")
+                                   .then (module => module.ProductModule)
     }
 ]
 
@@ -34,7 +43,7 @@ const routes: Routes = [
         // other router module
 
         CartRoutingModule,
-        ProductModule,
+        // ProductModule,
 
         // not found page, keep this at end of routing
         RouterModule.forChild([

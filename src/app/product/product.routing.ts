@@ -11,7 +11,8 @@ import { SaveAlertGuard } from './guards/save-alert.guard';
  
 const routes: Routes = [
     {
-        path: 'products', 
+        // path: 'products', 
+        path: '', // since this is lazily loaded, the prefix /products comes from app.routing
         component: ProductHomeComponent,
         children: [
             {
