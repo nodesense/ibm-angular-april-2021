@@ -14,10 +14,15 @@ import { CartModule } from './cart/cart.module';
 import { AppRoutingModule } from './app.routing';
 
 import {HttpClientModule} from '@angular/common/http';
+import { FavoriteListComponent } from './components/favorite-list/favorite-list.component';
+
+import {StoreModule} from '@ngrx/store';
+import { favoriteReducer } from './state/reducers/favorite.reducers';
 
 // logically collection of componnents, pipes and directives, associated services
 // a module may have dependencies to another module
 // angular loads modules first
+ 
 
 @NgModule({
     imports: [
@@ -27,7 +32,15 @@ import {HttpClientModule} from '@angular/common/http';
         FormsModule,
         CartModule,
         AppRoutingModule,
-        HttpClientModule
+        HttpClientModule,
+
+        // create a store per application
+        StoreModule.forRoot({
+            // state name: reducer that manages the state
+            // favorites shall be an array
+            favorites: favoriteReducer,
+            //auth: authReducer
+        })
     ],
     declarations: [
         // consist of all componnents, pipes, directives belong to this module
@@ -37,7 +50,8 @@ import {HttpClientModule} from '@angular/common/http';
         ContactComponent,
         NotFoundComponent,
         HeaderComponent,
-        FooterComponent
+        FooterComponent,
+        FavoriteListComponent
     ],
     bootstrap: [
         // the first component that should loaded into app

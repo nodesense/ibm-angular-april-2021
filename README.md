@@ -89,6 +89,24 @@ ng g  c components/footer
 ```
 
 
+ngrx
+
+```
+npm i @ngrx/store
+
+ng g c components/favorite-list
+
+
+ng g class models/favorite
+
+```
+
+
+Favorites
+
+Favorite product, should be stored in the store
+any component, need data, they can fetch from store
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.7.
 
 ## Development server
