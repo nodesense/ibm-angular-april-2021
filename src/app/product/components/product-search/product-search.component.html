@@ -21,6 +21,7 @@
   <tr>
       <th>Product</th>
   </tr>
+  <!-- async shall subscribe, on component unload, it automatically unsubscribe -->
   <tr *ngFor="let p of  products$ | async">
       <td>
            <span>{{p.name}}</span>
