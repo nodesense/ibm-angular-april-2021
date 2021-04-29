@@ -3,7 +3,7 @@ import { Favorite } from 'src/app/models/favorite';
 import { addFavorite, emptyFavorites, removeFavorite } from '../actions/favorite.actions';
 
 
-const initialState: Favorite[] = [];
+const initialState: Favorite[] = [ new Favorite(1, "Matrix") ];
 
 // reducer is a pure function, given same input, always producer same out
 // reducer should not have aync code, no api calls, no timers

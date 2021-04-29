@@ -5,6 +5,7 @@ import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { CartRoutingModule } from './cart/cart.routing';
+import { FavoriteListComponent } from './components/favorite-list/favorite-list.component';
 
 // import { ProductModule } from './product/product.module';
 
@@ -24,6 +25,10 @@ const routes: Routes = [
     {
         path: 'contact',
         component: ContactComponent
+    },
+    {
+        path: 'favorites',
+        component: FavoriteListComponent
     },
     {
         // lazy loading and code spliting

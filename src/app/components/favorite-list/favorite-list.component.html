@@ -1,1 +1,18 @@
-<p>favorite-list works!</p>
+<h2>Favorites</h2>
+
+<button (click)="empty()">Empty</button>
+
+<table>
+    <tr>
+        <th>Favorite product</th>
+        <th>-</th>
+    </tr>
+    <tr *ngFor="let favorite of  favorites$ | async">
+        <td>
+             <span>{{favorite.name}}</span>
+        </td>
+        <td>
+            <button (click)="remove(favorite.id)">X</button>
+        </td>
+    </tr>
+  </table>
