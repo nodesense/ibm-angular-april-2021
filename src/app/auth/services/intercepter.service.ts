@@ -34,7 +34,7 @@ export class IntercepterService implements HttpInterceptor  {
       });
     }
  
-    
+    // forward teh request to web service with token
     return next.handle(request);
   }
 

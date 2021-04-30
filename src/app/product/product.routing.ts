@@ -8,6 +8,7 @@ import { ProductEditComponent } from './components/product-edit/product-edit.com
 import { ProductSearchComponent } from './components/product-search/product-search.component';
 import { CanEditGuard } from './guards/can-edit.guard';
 import { SaveAlertGuard } from './guards/save-alert.guard';
+import { AuthGuard } from '../auth/guards/auth.guard';
  
 const routes: Routes = [
     {
@@ -22,12 +23,13 @@ const routes: Routes = [
             {
                 path: 'create', // localhost:4200/products/create    
                 component: ProductEditComponent,
-                canDeactivate: [SaveAlertGuard]
+                canDeactivate: [SaveAlertGuard],
+                canActivate: [AuthGuard]
             },
             {
                 path: 'edit/:id', // localhost:4200/products/edit/4343 
                 component: ProductEditComponent,
-                canActivate: [CanEditGuard],
+                canActivate: [AuthGuard, CanEditGuard],
                 canDeactivate: [SaveAlertGuard]
             },
             {

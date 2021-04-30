@@ -6,6 +6,9 @@ import { ContactComponent } from './components/contact/contact.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { CartRoutingModule } from './cart/cart.routing';
 import { FavoriteListComponent } from './components/favorite-list/favorite-list.component';
+import { HashLocationStrategy, LocationStrategy , PathLocationStrategy} from '@angular/common';
+
+  
 
 // import { ProductModule } from './product/product.module';
 
@@ -61,6 +64,14 @@ const routes: Routes = [
     exports: [
         // because we have router-outlet, routerLink coming from router module
         RouterModule
+    ],
+    providers: [
+        // register the service
+        {
+            provide: LocationStrategy, // base class ref/interface used by angular
+            // http://localhost/#/products/list
+            useClass: HashLocationStrategy , // What class will be used
+        }
     ]
 })
 export class AppRoutingModule {

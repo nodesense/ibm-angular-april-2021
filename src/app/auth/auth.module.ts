@@ -61,13 +61,13 @@ const routes: Routes = [
   ],
 
   providers: [
-    AuthGuard,
-    AdminGuard,
+    
 
-    {
-      provide: AuthService,
-      useClass : AuthService
-    }, 
+    // needed if the service is not decorated with providedIn: 'root'
+    // {
+    //   provide: AuthService,
+    //   useClass : AuthService
+    // }, 
 
 
     {
@@ -78,7 +78,7 @@ const routes: Routes = [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: IntercepterService,
-      multi: true
+      multi: true // needed if we use more than one interceptors..
     } 
   ]
 })

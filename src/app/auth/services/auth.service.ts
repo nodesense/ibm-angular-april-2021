@@ -9,8 +9,12 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
 import {map} from 'rxjs/operators';
- 
-@Injectable()
+
+// Angular 6, no providedIn, we need to register in providers section
+@Injectable({
+  // no need to register in providers section
+  providedIn: 'root'
+})
 export class AuthService {
 
   user: User = new User();
