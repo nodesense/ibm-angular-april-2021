@@ -19,6 +19,8 @@ import { FavoriteListComponent } from './components/favorite-list/favorite-list.
 import {StoreModule} from '@ngrx/store';
 import { favoriteReducer } from './state/reducers/favorite.reducers';
 import { AuthModule } from './auth/auth.module';
+import { EffectsModule } from '@ngrx/effects';
+import { CheckoutEffectService } from './cart/effects/checkout-effect.service';
 
 // logically collection of componnents, pipes and directives, associated services
 // a module may have dependencies to another module
@@ -34,7 +36,7 @@ import { AuthModule } from './auth/auth.module';
         CartModule,
 
         AuthModule,
-        
+
         AppRoutingModule,
         HttpClientModule,
        
@@ -44,7 +46,9 @@ import { AuthModule } from './auth/auth.module';
             // favorites shall be an array
             favorites: favoriteReducer,
             //auth: authReducer
-        })
+        }),
+
+        EffectsModule.forRoot([CheckoutEffectService])
     ],
     declarations: [
         // consist of all componnents, pipes, directives belong to this module
