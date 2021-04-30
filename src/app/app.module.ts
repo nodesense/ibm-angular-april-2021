@@ -21,6 +21,8 @@ import { favoriteReducer } from './state/reducers/favorite.reducers';
 import { AuthModule } from './auth/auth.module';
 import { EffectsModule } from '@ngrx/effects';
 import { CheckoutEffectService } from './cart/effects/checkout-effect.service';
+import { GridComponent } from './components/grid/grid.component';
+import { HostTemplateDirective } from './directives/host-template.directive';
 
 // logically collection of componnents, pipes and directives, associated services
 // a module may have dependencies to another module
@@ -59,7 +61,9 @@ import { CheckoutEffectService } from './cart/effects/checkout-effect.service';
         NotFoundComponent,
         HeaderComponent,
         FooterComponent,
-        FavoriteListComponent
+        FavoriteListComponent,
+        GridComponent,
+        HostTemplateDirective
     ],
     bootstrap: [
         // the first component that should loaded into app

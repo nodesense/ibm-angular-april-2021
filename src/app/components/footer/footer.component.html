@@ -10,9 +10,9 @@ highlight is a variable from footer component
 >
     <hr />
     <p>Copyrights @{{year}}, {{company}}</p>
-    <p>Build {{build}}</p>
+    <p [appHighlight]="'blue'">Build {{build}}</p>
 
-    Branches: <span *ngFor="let branch of branches">{{branch}} </span>
+    Branches: <span *ngFor="let branch of branches">{{branch}}</span>
 
     <!-- render content children in child component -->
     <ng-content></ng-content>

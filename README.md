@@ -130,6 +130,11 @@ ng g service  cart/effects/checkout-effect
 
 ng g service  cart/service/checkout 
 
+
+
+ng g c components/grid
+ng g directive directives/host-template
+
 ```
 
 Favorites
