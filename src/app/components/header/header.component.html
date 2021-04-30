@@ -15,6 +15,7 @@
     <a routerLink="/about"  class="button"  routerLinkActive="success" >About</a>
     <a routerLink="/contact"  class="button"  routerLinkActive="success" >Contact</a>
 
+    <app-auth-menu></app-auth-menu>
     <!-- async pipe, it subscribe automatically -->
     <span> {{amount$ | async | currency:'INR'}} </span>
 </div>
