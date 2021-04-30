@@ -137,6 +137,31 @@ Favorites
 Favorite product, should be stored in the store
 any component, need data, they can fetch from store
 
+```
+
+AoT - Ahead of Time   - used for ng build --prod 
+JIT - Just in Time    - Used for ng serve [dev]
+
+Angular 10 onwards, 
+
+Using AoT for both ng serve [dev] and also for prod envionment
+
+Angular compiles your html views into JavaScript using @angular/compiler
+
+Where exactly the html is convered to JS is what define AoT or JIT
+
+JIT - your html view is imported into browser as is, and @angular/compiler [2.4 MB] code also  imported into browser. 
+    During bootstrap platformBrowserDynamic().bootstrapModule(AppModule) , angular compiles your html files into js files in the browser
+
+AoT 
+    Compiling your html to JS during build time, @angular/compiler code is not importd into browser
+
+
+
+```
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.7.
 
 ## Development server
