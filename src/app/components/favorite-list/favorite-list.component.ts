@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Favorite } from 'src/app/models/favorite';
-import { emptyFavorites, removeFavorite } from 'src/app/state/actions/favorite.actions';
+import { addFavoriteToBackend, emptyFavorites, removeFavorite } from 'src/app/state/actions/favorite.actions';
 
 @Component({
   selector: 'app-favorite-list',
@@ -17,6 +17,7 @@ export class FavoriteListComponent implements OnInit {
     // fetch the data from store using selector
     // whenever data updated, latest version of data always given
     this.favorites$ = this.store.select('favorites')
+    
   }
 
   ngOnInit(): void {
@@ -34,4 +35,17 @@ export class FavoriteListComponent implements OnInit {
     this.store.dispatch(action)
   }
 
+
+  //effect
+  storeFavorites() {
+    const subs = this.favorites$.subscribe( favorites => {
+      const action = addFavoriteToBackend({favorites})
+      this.store.dispatch(action)
+
+      setTimeout( () => {
+        if (subs)
+         subs.unsubscribe();
+      }, 0);
+    })
+  }
 }

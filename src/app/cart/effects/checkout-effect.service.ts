@@ -43,7 +43,7 @@ export class CheckoutEffectService {
 
 
    
-  checkoutMovies$ = createEffect(() =>
+  checkout$ = createEffect(() =>
   this.actions$.pipe(
     ofType('[Cart] checkout'),
     mergeMap(( action: any) => this.checkoutService.postOrder(action.order)
@@ -53,7 +53,19 @@ export class CheckoutEffectService {
       )
     )
   )
-);
+  );
+
+  postFavorites$ = createEffect(() =>
+  this.actions$.pipe(
+    ofType('[Favorite] toBackend'),
+    mergeMap(( action: any) => this.checkoutService.postFavorites(action.favorites)
+      .pipe(
+        map(order => ({ type: '[Favorite] empty' })),
+        catchError(() => of({ type: '[Favorite] storeFavFailed' }))
+      )
+    )
+  )
+  );
 
 
    

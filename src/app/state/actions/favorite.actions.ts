@@ -4,6 +4,10 @@
 import {createAction, props} from '@ngrx/store';
 import { Favorite } from 'src/app/models/favorite';
 
+export const addFavoriteToBackend = createAction(
+    '[Favorite] toBackend', // type
+    props<{favorites: Favorite[]}>(), // payload/arguments that to be send with event
+)
 
 // actions are event
 export const addFavorite = createAction(
