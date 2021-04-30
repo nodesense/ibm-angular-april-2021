@@ -123,6 +123,15 @@ http-server -c-1 -p 8880 dist/product-app
 ```
 
 
+```
+npm i @ngrx/effects
+
+ng g service  cart/effects/checkout-effect 
+
+ng g service  cart/service/checkout 
+
+```
+
 Favorites
 
 Favorite product, should be stored in the store
